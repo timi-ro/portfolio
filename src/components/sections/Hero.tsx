@@ -8,6 +8,7 @@ import { SectionHeader } from '@/components/ui/SectionHeader';
 import { StatCard } from '@/components/ui/StatCard';
 import { FadeInSection } from '@/components/ui/FadeInSection';
 import { GridPattern } from '@/components/ui/patterns/GridPattern';
+import { getAssetPath } from '@/lib/config';
 
 export default function Hero() {
   const { name, role, location } = resume.personalInfo;
@@ -72,7 +73,7 @@ export default function Hero() {
             <div className="absolute inset-0 flex items-center justify-center">
               <div className="relative w-[280px] h-[350px] lg:w-[450px] lg:h-[580px]">
                 <Image
-                  src="/profile.png"
+                  src={getAssetPath("/profile.png")}
                   alt={name}
                   fill
                   sizes="(max-width: 768px) 280px, 450px"

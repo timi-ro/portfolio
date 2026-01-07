@@ -9,6 +9,7 @@ const nextConfig: NextConfig = {
 
   // Base path for GitHub Pages (repository name)
   basePath: '/portfolio',
+  assetPrefix: '/portfolio',
 
   // Image optimization (unoptimized for static export)
   images: {

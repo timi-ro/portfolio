@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { StructuredData } from "@/components/StructuredData";
+import { getAssetPath } from "@/lib/config";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -56,7 +57,7 @@ export const metadata: Metadata = {
     siteName: "Fatemeh Rostami Portfolio",
     images: [
       {
-        url: "/og-image.png",
+        url: getAssetPath("/og-image.png"),
         width: 1200,
         height: 630,
         alt: "Fatemeh Rostami - Backend Software Engineer",
@@ -67,7 +68,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Fatemeh Rostami - Backend Software Engineer",
     description: "Backend Software Engineer with 7+ years expertise in PHP, Laravel, Vue.js. Building scalable solutions.",
-    images: ["/og-image.png"],
+    images: [getAssetPath("/og-image.png")],
     creator: "@frostami",
   },
   robots: {
