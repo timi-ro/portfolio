@@ -52,12 +52,13 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    title: "Fatemeh Rostami - Backend Software Engineer",
+    url: "https://timi-ro.github.io/portfolio",
+    title: "Fatemeh Rostami - Backend Software Engineer | PHP, Laravel & Vue.js",
     description: "Backend Software Engineer specializing in PHP, Laravel, and modern web technologies. 7+ years building scalable, clean architectures.",
     siteName: "Fatemeh Rostami Portfolio",
     images: [
       {
-        url: getAssetPath("/og-image.png"),
+        url: "https://timi-ro.github.io/portfolio/og-image.png",
         width: 1200,
         height: 630,
         alt: "Fatemeh Rostami - Backend Software Engineer",
@@ -66,9 +67,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Fatemeh Rostami - Backend Software Engineer",
+    title: "Fatemeh Rostami - Backend Software Engineer | PHP, Laravel & Vue.js",
     description: "Backend Software Engineer with 7+ years expertise in PHP, Laravel, Vue.js. Building scalable solutions.",
-    images: [getAssetPath("/og-image.png")],
+    images: ["https://timi-ro.github.io/portfolio/og-image.png"],
     creator: "@frostami",
   },
   robots: {
