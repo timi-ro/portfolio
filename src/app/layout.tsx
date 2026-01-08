@@ -99,6 +99,7 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <StructuredData />
+        <meta property="og:logo" content="https://timi-ro.github.io/portfolio/og-image.png" />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
