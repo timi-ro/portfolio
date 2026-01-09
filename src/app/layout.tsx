@@ -98,13 +98,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        <GoogleAnalytics />
         <StructuredData />
         <meta property="og:logo" content="https://timi-ro.github.io/portfolio/og-image.png" />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <GoogleAnalytics />
         {children}
       </body>
     </html>
