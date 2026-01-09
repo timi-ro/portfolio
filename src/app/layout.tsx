@@ -98,6 +98,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        <meta name="google-site-verification" content="Qzn0I0oP3C5_8t4BW0v5sNogzdlqXvAr03GRdrxMZlQ" />
         <GoogleAnalytics />
         <StructuredData />
         <meta property="og:logo" content="https://timi-ro.github.io/portfolio/og-image.png" />
