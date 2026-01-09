@@ -22,12 +22,6 @@ export function StructuredData() {
       name: 'Backend Software Engineering',
     },
     knowsAbout: resume.skills.map(skill => skill.name),
-    workExample: resume.experience.map(exp => ({
-      '@type': 'CreativeWork',
-      name: `${exp.role} at ${exp.company}`,
-      description: exp.achievements.join('. '),
-      datePublished: exp.duration,
-    })),
   };
 
   return (
