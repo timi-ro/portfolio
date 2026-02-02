@@ -3,8 +3,8 @@ import { Resume } from '@/types';
 export const resume: Resume = {
   personalInfo: {
     name: 'Fatemeh Rostami',
-    role: 'Backend Software Engineer',
-    intro: 'Backend engineer who brings structure to chaos and isn\'t afraid to step outside the box when the team needs it. I\'ve become the person teams call when a codebase is blocking delivery. I\'ve refactored legacy systems into clean Laravel/Symfony architecture, redesigned schemas for performance, and built ETL pipelines with Snowflake. My focus: architectural clarity, long-term scalability, and code that future developers will thank you for.',
+    role: 'Backend Engineer → AI Application Developer',
+    intro: 'Backend engineer expanding into AI application development. With 6+ years of backend expertise in Laravel, Symfony, and API architecture, I now build RAG systems with LangChain and vector databases, AI-powered workflow automation, and intelligent APIs integrating LLM capabilities into backend services. I bring data engineering depth (ETL pipelines, Snowflake, analytics at scale) and leadership experience to every project. Actively shipping AI-enhanced systems, not just exploring the space.',
     location: 'İstanbul, Türkiye',
     email: 'frostami.1988@gmail.com',
     linkedin: 'linkedin.com/in/frostami',
@@ -76,15 +76,24 @@ export const resume: Resume = {
     },
   ],
   skills: [
+    // AI & LLM
+    { name: 'LangChain', category: 'AI & LLM' },
+    { name: 'RAG Systems', category: 'AI & LLM' },
+    { name: 'Vector Databases', category: 'AI & LLM' },
+    { name: 'LLM Integration', category: 'AI & LLM' },
+    { name: 'FastAPI', category: 'AI & LLM' },
+    { name: 'AI Workflow Automation', category: 'AI & LLM' },
+
     // Backend
     { name: 'PHP', category: 'Backend' },
     { name: 'Laravel', category: 'Backend' },
     { name: 'Symfony', category: 'Backend' },
-    { name: 'Node.js', category: 'Backend' },
-    { name: 'Nest.js', category: 'Backend' },
     { name: 'Python', category: 'Backend' },
+    { name: 'Node.js', category: 'Backend' },
+    { name: 'Go', category: 'Backend' },
     { name: 'RESTful API', category: 'Backend' },
     { name: 'API Design', category: 'Backend' },
+    { name: 'Microservices', category: 'Backend' },
 
     // Frontend
     { name: 'JavaScript', category: 'Frontend' },

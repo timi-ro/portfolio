@@ -21,7 +21,7 @@ export default function About() {
             <div>
               <SectionHeader label="ABOUT" className="mb-12" />
               <h2 className="text-5xl font-extralight text-white leading-tight">
-                  Crafting Clean, Scalable Backend Architecture
+                  Building RAG Systems & Intelligent APIs
               </h2>
             </div>
           </FadeInSection>
@@ -30,19 +30,18 @@ export default function About() {
           <FadeInSection delay={0.2}>
             <div className="space-y-8 text-lg font-light text-zinc-400 leading-relaxed">
               <p>
-                I'm a <span className="text-white">Backend Software Engineer</span> with 7+ years of expertise
-                in building high-performance web applications.
+                I'm a <span className="text-white">Backend Engineer expanding into AI Application Development</span>, leveraging
+                6+ years of backend expertise to build intelligent systems.
               </p>
               <p>
-                At RetreatGuru, I refactored monolithic WordPress application into modern
-                <span className="text-cyan-500"> Laravel architecture with Docker and Kubernetes</span>,
-                improving performance by ~43%. I've built PHP ETL pipelines extracting AWS S3 backups
-                and transforming data for BI and marketing analytics.
+                Currently building <span className="text-cyan-500">RAG systems with LangChain and vector databases</span>,
+                AI-powered workflow automation (SmartOps Copilot, Rizon Prime), and intelligent APIs
+                that integrate LLM capabilities into backend services.
               </p>
               <p>
-                I believe in clean code, comprehensive testing (85%+ coverage), and establishing
-                architectural patterns that reduce code review time by 40% while maintaining
-                high quality standards using PSR-12 and PHPStan level 8.
+                My foundation in <span className="text-cyan-500">Laravel, Symfony, API architecture, and microservices</span> combined
+                with data engineering experience (ETL pipelines, Snowflake, analytics at scale) gives me
+                a unique edge in building production-ready AI applications.
               </p>
             </div>
           </FadeInSection>

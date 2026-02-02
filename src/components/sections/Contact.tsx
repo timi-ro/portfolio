@@ -26,7 +26,7 @@ export default function Contact() {
             <h2 className="text-5xl font-extralight text-white mb-12">
               Let&apos;s build something
                 <span className="text-5xl font-normal bg-gradient-to-r from-cyan-500 via-teal-500 to-cyan-600 bg-clip-text text-transparent">
-                    &nbsp;extraordinary
+                    &nbsp;intelligent
                 </span>
             </h2>
           </FadeInSection>

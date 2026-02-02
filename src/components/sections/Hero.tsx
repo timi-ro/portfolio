@@ -55,9 +55,9 @@ export default function Hero() {
               <div className="pt-12">
                 <div className="h-px bg-zinc-800 mb-8 max-w-[500px]"></div>
                 <div className="grid grid-cols-3 gap-8 lg:gap-12 max-w-[500px]">
-                  <StatCard value="7+" label="Years Experience" />
-                  <StatCard value="86%" label="Test Coverage" />
-                  <StatCard value="43%" label="Performance Gain" />
+                  <StatCard value="6+" label="Years Backend" />
+                  <StatCard value="RAG" label="Systems Builder" />
+                  <StatCard value="AI" label="Apps in Production" />
                 </div>
               </div>
             </FadeInSection>

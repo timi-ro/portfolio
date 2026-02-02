@@ -21,6 +21,7 @@ export default function Skills() {
 
   // Define order of categories
   const categoryOrder = useMemo(() => [
+    'AI & LLM',
     'Backend',
     'Frontend',
     'Database',
