@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "Fatemeh Rostami - Backend Engineer & AI Application Developer | RAG Systems & Intelligent APIs",
+    default: "Fatemeh Rostami | Software Engineer Portfolio",
     template: "%s | Fatemeh Rostami"
   },
   description: "Backend Engineer expanding into AI Application Development. Building RAG systems with LangChain, AI-powered workflow automation, and intelligent APIs. 6+ years backend expertise in Laravel, Symfony, and microservices. Based in Istanbul, Türkiye.",
@@ -54,23 +54,23 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://timi-ro.github.io/portfolio",
-    title: "Fatemeh Rostami - Backend Engineer & AI Application Developer | RAG Systems & Intelligent APIs",
+    title: "Fatemeh Rostami | Software Engineer Portfolio",
     description: "Backend Engineer building RAG systems, AI-powered automation, and intelligent APIs. 6+ years backend expertise with Laravel, Symfony, and microservices.",
     siteName: "Fatemeh Rostami Portfolio",
     images: [
       {
-        url: "https://timi-ro.github.io/portfolio/og-image.png",
+        url: "https://timi-ro.github.io/portfolio/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Fatemeh Rostami - Backend Engineer & AI Application Developer",
+        alt: "Fatemeh Rostami - Software Engineer",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Fatemeh Rostami - Backend Engineer & AI Application Developer | RAG Systems & Intelligent APIs",
+    title: "Fatemeh Rostami | Software Engineer Portfolio",
     description: "Backend Engineer building RAG systems, AI-powered automation, and intelligent APIs with LangChain and FastAPI.",
-    images: ["https://timi-ro.github.io/portfolio/og-image.png"],
+    images: ["https://timi-ro.github.io/portfolio/og-image.jpg"],
     creator: "@frostami",
   },
   robots: {
@@ -102,7 +102,7 @@ export default function RootLayout({
         <meta name="google-site-verification" content="Qzn0I0oP3C5_8t4BW0v5sNogzdlqXvAr03GRdrxMZlQ" />
         <GoogleAnalytics />
         <StructuredData />
-        <meta property="og:logo" content="https://timi-ro.github.io/portfolio/og-image.png" />
+        <meta property="og:logo" content="https://timi-ro.github.io/portfolio/og-image.jpg" />
       </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
