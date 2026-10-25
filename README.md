@@ -45,7 +45,3 @@ Backend Software Engineer
 - Email: frostami.1988@gmail.com
 - LinkedIn: [linkedin.com/in/frostami](https://linkedin.com/in/frostami)
 - GitHub: [github.com/timi-ro](https://github.com/timi-ro)
-
-## License
-
-MIT

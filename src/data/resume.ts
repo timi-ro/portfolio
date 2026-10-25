@@ -3,18 +3,126 @@ import { Resume } from '@/types';
 export const resume: Resume = {
   personalInfo: {
     name: 'Fatemeh Rostami',
-    role: 'Backend Engineer → AI Application Developer',
-    intro: 'Backend engineer expanding into AI application development. With 6+ years of backend expertise in Laravel, Symfony, and API architecture, I now build RAG systems with LangChain and vector databases, AI-powered workflow automation, and intelligent APIs integrating LLM capabilities into backend services. I bring data engineering depth (ETL pipelines, Snowflake, analytics at scale) and leadership experience to every project. Actively shipping AI-enhanced systems, not just exploring the space.',
+    role: 'Full-Stack Software Engineer',
+    intro: 'I build product platforms end to end, from the data model and API to the interface customers use every day.',
+    about: [
+      'I learned to code before AI could do it for me. Back then, tracking down a simple bug could take a couple of days: setting breakpoints in the IDE, stepping through the code line by line, and watching every variable until the problem finally showed itself. That slow, patient debugging taught me how software really behaves, and it still shapes how I work today, even with AI tools at my side.',
+      'I\'m a full-stack software engineer at SCOREalytics, working across the customer platform of a legal regulatory-intelligence product. I rebuilt the client portal from Figma designs into a reusable component system, and I design the REST APIs, onboarding flows and integrations behind it.',
+      'Before that I spent six years on the backend and data side. At Retreat Guru I led the data infrastructure, running ETL pipelines from 1,000+ SaaS sites into Snowflake, and turned legacy PHP into maintainable Laravel and Symfony systems. Earlier, I ran Scrum for a small development team.',
+      'I care about the work that makes a team faster over time: clear engineering standards, honest error reporting, solid tests, and helping newer engineers grow. That now includes AI: shipping LLM-powered features, and making sure AI coding tools follow the same rules as everyone else.',
+    ],
     location: 'İstanbul, Türkiye',
     email: 'frostami.1988@gmail.com',
     linkedin: 'linkedin.com/in/frostami',
     github: 'github.com/timi-ro',
+    medium: 'medium.com/@foretoldfatima',
   },
   experience: [
     {
+      company: 'SCOREalytics',
+      companyUrl: 'https://scorealytics.com/',
+      context: 'Legal regulatory-intelligence platform',
+      role: 'Full-Stack Software Engineer',
+      location: 'United States · Full-time remote',
+      period: 'May 2026 – Present',
+      achievements: [
+        {
+          title: 'Redesigned the customer platform, front end to back end.',
+          detail: 'Rebuilt the client portal from the Figma designs into a component-based system of reusable cards, chips, filters and layout pieces. I also built the REST API endpoints behind it: dashboard status and development dates, the risk-score Priority column, watched items, regulation developments, saved prompts, and AI-generated emails.',
+        },
+        {
+          title: 'Better error handling.',
+          detail: 'Sorted errors from backend services into temporary blips, client mistakes and real bugs, so the error tracker reports only actionable failures.',
+        },
+        {
+          title: 'Product experience.',
+          detail: 'Added a guided product tour and a customer-feedback tool (thumbs ratings on results, stored in their own database tables).',
+        },
+        {
+          title: 'Automated onboarding.',
+          detail: 'Replaced manual client setup with a Back Office onboarding flow, and connected the platform to HubSpot (and PostHog) so marketing can track customers from sign-up to activation.',
+        },
+        {
+          title: 'Engineering standards for people and AI tools.',
+          detail: 'Rewrote the team\'s engineering standards from industry best practice and built them into every repo, so AI coding tools follow the same rules.',
+        },
+        {
+          title: 'Testing and quality.',
+          detail: 'Expanded automated test coverage on the customer-facing site, and wrote test plans for the edge cases automated tests can\'t catch.',
+        },
+        {
+          title: 'Mentoring.',
+          detail: 'Onboarded and mentored junior engineers.',
+        },
+      ],
+      technologies: [
+        'TypeScript',
+        'React',
+        'Next.js',
+        'tRPC',
+        'TanStack Query',
+        'Tailwind CSS',
+        'Node.js',
+        'Azure SQL Server',
+        'Azure AI Search',
+        'Azure OpenAI',
+        'Clerk',
+        'HubSpot',
+        'PostHog',
+        'Sentry',
+        'Jest',
+        'Azure DevOps',
+      ],
+    },
+    {
+      company: 'HeyDojo.ai',
+      companyUrl: 'https://heydojo.ai/',
+      context: 'Voice-first AI workspace for coding, research, media and automation',
+      role: 'Software QA Tester',
+      location: 'Part-time remote',
+      period: 'Oct 2025 – May 2026',
+      tenure: '8 mos',
+      achievements: [
+        {
+          title: 'Cross-platform desktop testing.',
+          detail: 'Tested Dojo Workspace releases on macOS, Windows and Linux, checking installation, updates and core workflows on each platform before release.',
+        },
+        {
+          title: 'AI workflows.',
+          detail: 'Tested the Solo and Duo work lanes, where one AI lane builds while another reviews, along with voice input and switching between AI model providers, and reported where responses or hand-offs between lanes broke down.',
+        },
+        {
+          title: 'Automation and media tools.',
+          detail: 'Checked the built-in browser automation and the image, video, music and speech generation tools, verifying that recordings, screenshots and output files were produced and saved correctly.',
+        },
+        {
+          title: 'Remote access.',
+          detail: 'Tested Dojo Connect, the Telegram-based remote access with two-way text and voice messaging.',
+        },
+        {
+          title: 'Bug reports and regression checks.',
+          detail: 'Wrote clear, reproducible bug reports and re-tested fixes before each release.',
+        },
+      ],
+      technologies: [
+        'Manual Testing',
+        'Exploratory Testing',
+        'Regression Testing',
+        'Bug Reporting',
+        'macOS',
+        'Windows',
+        'Linux',
+        'LLM Applications',
+      ],
+    },
+    {
       company: 'Retreat Guru',
+      companyUrl: 'https://retreat.guru/',
+      context: 'Wellness retreat marketplace and booking software',
       role: 'Backend Developer / Data Engineer',
-      duration: 'February 2021 - September 2025 · 4 yrs 8 mos',
+      location: 'Canada · Full-time remote',
+      period: 'Feb 2021 – Sep 2025',
+      tenure: '4 yrs 8 mos',
       achievements: [
         'Refactored over 3,000 lines of legacy WordPress code into a structured Laravel architecture, enhancing performance by 40%',
         'Normalized legacy database schemas, migrating unstructured JSON data into properly indexed relational tables, improving query performance and data integrity',
@@ -49,8 +157,12 @@ export const resume: Resume = {
     },
     {
       company: 'Agileful',
+      companyUrl: 'https://agileful.com/',
+      context: 'Custom software and MVP development agency',
       role: 'Back End Developer',
-      duration: 'November 2020 - January 2021 · 3 mos',
+      location: 'Germany · Full-time remote',
+      period: 'Nov 2020 – Jan 2021',
+      tenure: '3 mos',
       achievements: [
         'Participated in a critical rescue mission for Co-Dressing, transforming a failing French codebase into a production-ready system within one month',
         'Debugged and reverse-engineered a complex Symfony application, ensuring platform stability for businesses and end-users',
@@ -61,8 +173,11 @@ export const resume: Resume = {
     },
     {
       company: 'Hirkan',
-      role: 'Scrum Master | PHP Developer',
-      duration: 'January 2019 - March 2020 · 1 yr 3 mos',
+      context: 'CRM implementation (OroCRM) and marketing solutions for clients',
+      role: 'Scrum Master & PHP Developer',
+      location: 'Full-time on-site',
+      period: 'Jan 2019 – Mar 2020',
+      tenure: '1 yr 3 mos',
       achievements: [
         'Led daily scrum sessions for a 4-person development team, ensuring effective communication and task coordination',
         'Mentored junior developers on backend development best practices, Git workflows, and code review processes',
@@ -72,7 +187,7 @@ export const resume: Resume = {
         'Developed and implemented a Symfony service to automate data collection, reducing manual processing time by 80%',
         'Successfully eliminated data entry errors, improving overall data integrity',
       ],
-      technologies: ['PHP', 'Symfony', 'MariDB', 'Linux', 'Scrum', 'Jira', 'Agile', 'Git', 'Google Tag Manager', 'Matomo'],
+      technologies: ['PHP', 'Symfony', 'OroCRM', 'MariaDB', 'Linux', 'Scrum', 'Jira', 'Agile', 'Git', 'Google Tag Manager', 'Matomo'],
     },
   ],
   skills: [
@@ -83,6 +198,10 @@ export const resume: Resume = {
     { name: 'LLM Integration', category: 'AI & LLM' },
     { name: 'FastAPI', category: 'AI & LLM' },
     { name: 'AI Workflow Automation', category: 'AI & LLM' },
+    { name: 'Azure OpenAI', category: 'AI & LLM' },
+    { name: 'Azure AI Search (Hybrid & Vector)', category: 'AI & LLM' },
+    { name: 'Embeddings & Semantic Ranking', category: 'AI & LLM' },
+    { name: 'AI-Assisted Development (Cursor, Claude)', category: 'AI & LLM' },
 
     // Backend
     { name: 'PHP', category: 'Backend' },
@@ -90,6 +209,9 @@ export const resume: Resume = {
     { name: 'Symfony', category: 'Backend' },
     { name: 'Python', category: 'Backend' },
     { name: 'Node.js', category: 'Backend' },
+    { name: 'Express', category: 'Backend' },
+    { name: 'Zod', category: 'Backend' },
+    { name: 'Payload CMS', category: 'Backend' },
     { name: 'Go', category: 'Backend' },
     { name: 'RESTful API', category: 'Backend' },
     { name: 'API Design', category: 'Backend' },
@@ -98,17 +220,28 @@ export const resume: Resume = {
     // Frontend
     { name: 'JavaScript', category: 'Frontend' },
     { name: 'TypeScript', category: 'Frontend' },
+    { name: 'React', category: 'Frontend' },
+    { name: 'Next.js (App Router)', category: 'Frontend' },
+    { name: 'tRPC', category: 'Frontend' },
+    { name: 'TanStack Query', category: 'Frontend' },
+    { name: 'Zustand', category: 'Frontend' },
+    { name: 'React Hook Form', category: 'Frontend' },
+    { name: 'shadcn/ui & Radix', category: 'Frontend' },
+    { name: 'Tailwind CSS', category: 'Frontend' },
+    { name: 'Storybook', category: 'Frontend' },
     { name: 'Vue.js', category: 'Frontend' },
-    { name: 'TailwindCSS', category: 'Frontend' },
 
     // Database & Data
+    { name: 'Azure SQL Server (MSSQL)', category: 'Database' },
+    { name: 'SQL (T-SQL)', category: 'Database' },
     { name: 'MySQL', category: 'Database' },
     { name: 'MariaDB', category: 'Database' },
     { name: 'MongoDB', category: 'Database' },
     { name: 'Redis', category: 'Database' },
-    { name: 'Elastic Search', category: 'Database' },
+    { name: 'Elasticsearch / OpenSearch', category: 'Database' },
     { name: 'SQLite', category: 'Database' },
     { name: 'Data Modeling', category: 'Database' },
+    { name: 'Schema Migrations', category: 'Database' },
 
     // Architecture & Design
     { name: 'System Design', category: 'Architecture' },
@@ -126,8 +259,10 @@ export const resume: Resume = {
     { name: 'Docker', category: 'DevOps' },
     { name: 'Kubernetes', category: 'DevOps' },
     { name: 'CI/CD', category: 'DevOps' },
+    { name: 'Azure DevOps Pipelines', category: 'DevOps' },
     { name: 'Jenkins', category: 'DevOps' },
     { name: 'Git', category: 'DevOps' },
+    { name: 'Monorepos', category: 'DevOps' },
     { name: 'GitLab', category: 'DevOps' },
     { name: 'Github', category: 'DevOps' },
     { name: 'Nginx', category: 'DevOps' },
@@ -145,18 +280,31 @@ export const resume: Resume = {
 
     // Cloud & Infrastructure
     { name: 'Amazon S3', category: 'Cloud' },
+    { name: 'Azure Blob Storage', category: 'Cloud' },
+    { name: 'Azure Storage Queue', category: 'Cloud' },
+    { name: 'Azure Key Vault', category: 'Cloud' },
     { name: 'Cloudflare', category: 'Cloud' },
+
+    // Auth & Integrations
+    { name: 'Clerk (Auth, Organizations, Webhooks)', category: 'Integrations' },
+    { name: 'HubSpot', category: 'Integrations' },
+    { name: 'OroCRM', category: 'Integrations' },
+    { name: 'Postmark', category: 'Integrations' },
 
     // Testing & Quality
     { name: 'Vitest', category: 'Testing' },
     { name: 'Jest', category: 'Testing' },
+    { name: 'React Testing Library', category: 'Testing' },
     { name: 'Playwright', category: 'Testing' },
     { name: 'Cypress', category: 'Testing' },
     { name: 'RobotFramework', category: 'Testing' },
     { name: 'SonarQube', category: 'Testing' },
+    { name: 'Test Plans & QA', category: 'Testing' },
 
-    // Monitoring & Optimization
+    // Monitoring & Security
     { name: 'Sentry', category: 'Monitoring' },
+    { name: 'GlitchTip', category: 'Monitoring' },
+    { name: 'Snyk', category: 'Monitoring' },
     { name: 'Observability', category: 'Monitoring' },
     { name: 'Performance Optimization', category: 'Monitoring' },
 
@@ -164,6 +312,7 @@ export const resume: Resume = {
     { name: 'Technical Leadership', category: 'Leadership' },
     { name: 'Scrum', category: 'Leadership' },
     { name: 'Agile', category: 'Leadership' },
+    { name: 'Jira', category: 'Leadership' },
     { name: 'Code Review', category: 'Leadership' },
     { name: 'Mentoring', category: 'Leadership' },
     { name: 'Legacy Refactoring', category: 'Leadership' },

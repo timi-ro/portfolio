@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Newsreader } from "next/font/google";
 import { StructuredData } from "@/components/StructuredData";
 import { GoogleAnalytics } from "@/components/GoogleAnalytics";
 import "./globals.css";
@@ -14,16 +14,23 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const newsreader = Newsreader({
+  variable: "--font-newsreader",
+  subsets: ["latin"],
+});
+
 export const metadata: Metadata = {
   title: {
-    default: "Fatemeh Rostami | Software Engineer Portfolio",
+    default: "Fatemeh Rostami | Full-Stack Software Engineer",
     template: "%s | Fatemeh Rostami"
   },
-  description: "Backend Engineer expanding into AI Application Development. Building RAG systems with LangChain, AI-powered workflow automation, and intelligent APIs. 6+ years backend expertise in Laravel, Symfony, and microservices. Based in Istanbul, Türkiye.",
+  description: "Full-stack software engineer at SCOREalytics, building product platforms end to end: component-based front ends, REST APIs, onboarding flows and integrations. Background in backend and data engineering with Laravel, Symfony and Snowflake. Based in Istanbul, Türkiye.",
   keywords: [
     "Fatemeh Rostami",
-    "AI Application Developer",
+    "Full-Stack Software Engineer",
     "Backend Engineer",
+    "SCOREalytics",
+    "REST API",
     "RAG Systems",
     "LangChain Developer",
     "LLM Integration",
@@ -54,8 +61,8 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://timi-ro.github.io/portfolio",
-    title: "Fatemeh Rostami | Software Engineer Portfolio",
-    description: "Backend Engineer building RAG systems, AI-powered automation, and intelligent APIs. 6+ years backend expertise with Laravel, Symfony, and microservices.",
+    title: "Fatemeh Rostami | Full-Stack Software Engineer",
+    description: "Full-stack software engineer building product platforms end to end, from the data model and API to the interface customers use every day.",
     siteName: "Fatemeh Rostami Portfolio",
     images: [
       {
@@ -68,8 +75,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Fatemeh Rostami | Software Engineer Portfolio",
-    description: "Backend Engineer building RAG systems, AI-powered automation, and intelligent APIs with LangChain and FastAPI.",
+    title: "Fatemeh Rostami | Full-Stack Software Engineer",
+    description: "Full-stack software engineer building product platforms end to end, from the data model and API to the interface customers use every day.",
     images: ["https://timi-ro.github.io/portfolio/og-image.jpg"],
     creator: "@frostami",
   },
@@ -105,7 +112,7 @@ export default function RootLayout({
         <meta property="og:logo" content="https://timi-ro.github.io/portfolio/og-image.jpg" />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${newsreader.variable} antialiased`}
       >
         {children}
       </body>

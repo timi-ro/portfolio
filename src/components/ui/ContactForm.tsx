@@ -44,7 +44,7 @@ export function ContactForm({ className }: ContactFormProps) {
         setStatus('error');
         setTimeout(() => setStatus('idle'), 5000);
       }
-    } catch (error) {
+    } catch {
       setStatus('error');
       setTimeout(() => setStatus('idle'), 5000);
     }
@@ -54,22 +54,23 @@ export function ContactForm({ className }: ContactFormProps) {
     setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
-  const inputStyles = 'w-full px-4 py-3 bg-[#0A0A0F] border border-zinc-800 text-white placeholder-zinc-600 focus:outline-none focus:border-cyan-500 transition-colors';
+  const inputStyles = 'w-full rounded-md border border-line bg-surface px-4 py-3 text-[15px] text-ink placeholder-subtle transition-colors focus:border-accent-2 focus:outline-none focus:ring-2 focus:ring-accent-2/20 disabled:opacity-60';
 
   return (
     <form
       onSubmit={handleSubmit}
-      className={cn('space-y-6 max-w-2xl mx-auto', className)}
+      className={cn('space-y-4', className)}
     >
       {/* Honeypot for spam protection */}
       <input type="text" name="_honey" style={{ display: 'none' }} tabIndex={-1} autoComplete="off" />
 
-      <div className="grid md:grid-cols-2 gap-6">
+      <div className="grid gap-4 sm:grid-cols-2">
         <div>
           <input
             type="text"
             name="name"
-            placeholder="Your Name"
+            placeholder="Your name"
+            aria-label="Your name"
             value={formData.name}
             onChange={handleChange}
             required
@@ -81,7 +82,8 @@ export function ContactForm({ className }: ContactFormProps) {
           <input
             type="email"
             name="email"
-            placeholder="Your Email"
+            placeholder="Your email"
+            aria-label="Your email"
             value={formData.email}
             onChange={handleChange}
             required
@@ -94,7 +96,8 @@ export function ContactForm({ className }: ContactFormProps) {
       <div>
         <textarea
           name="message"
-          placeholder="Your Message"
+          placeholder="Your message"
+          aria-label="Your message"
           value={formData.message}
           onChange={handleChange}
           required
@@ -108,23 +111,23 @@ export function ContactForm({ className }: ContactFormProps) {
         type="submit"
         disabled={status === 'loading'}
         className={cn(
-          'w-full px-8 py-4 bg-cyan-500 text-[#0A0A0F] font-medium tracking-wide transition-all',
-          status === 'loading' ? 'opacity-50 cursor-not-allowed' : 'hover:bg-cyan-400'
+          'rounded-md bg-ink px-6 py-3 text-sm font-medium text-paper transition-opacity',
+          status === 'loading' ? 'cursor-not-allowed opacity-50' : 'hover:opacity-85'
         )}
       >
-        {status === 'loading' ? 'Sending...' : 'Send Message'}
+        {status === 'loading' ? 'Sending…' : 'Send message'}
       </button>
 
       {status === 'success' && (
-        <div className="text-center text-cyan-500 text-sm animate-fadeIn">
-          ✓ Thank you! Your message has been sent successfully.
-        </div>
+        <p role="status" className="text-sm text-accent">
+          Thank you. Your message has been sent.
+        </p>
       )}
 
       {status === 'error' && (
-        <div className="text-center text-red-500 text-sm animate-fadeIn">
-          ✗ Something went wrong. Please try again or email me directly.
-        </div>
+        <p role="alert" className="text-sm text-red-600 dark:text-red-400">
+          Something went wrong. Please try again, or email me directly.
+        </p>
       )}
     </form>
   );

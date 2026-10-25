@@ -1,158 +1,69 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import { cn } from '@/lib/utils';
+
+const navLinks = [
+  { name: 'About', id: 'about' },
+  { name: 'Experience', id: 'experience' },
+  { name: 'Skills', id: 'skills' },
+  { name: 'Off the clock', id: 'off-the-clock' },
+  { name: 'Contact', id: 'contact' },
+];
 
 export default function Navigation() {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [active, setActive] = useState('about');
 
+  // Highlight the section that occupies the upper part of the viewport
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) setActive(entry.target.id);
+        });
+      },
+      { rootMargin: '-30% 0px -60% 0px' }
+    );
+
+    navLinks.forEach(({ id }) => {
+      const section = document.getElementById(id);
+      if (section) observer.observe(section);
+    });
+
+    return () => observer.disconnect();
   }, []);
-
-  // Close mobile menu when screen size changes to desktop
-  useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth >= 768) {
-        setIsMobileMenuOpen(false);
-      }
-    };
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
-
-  // Prevent body scroll when mobile menu is open
-  useEffect(() => {
-    if (isMobileMenuOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'unset';
-    }
-    return () => {
-      document.body.style.overflow = 'unset';
-    };
-  }, [isMobileMenuOpen]);
-
-  const toggleMobileMenu = () => {
-    setIsMobileMenuOpen(!isMobileMenuOpen);
-  };
-
-  const closeMobileMenu = () => {
-    setIsMobileMenuOpen(false);
-  };
-
-  const navLinks = [
-    { name: 'HOME', href: '#' },
-    { name: 'ABOUT', href: '#about' },
-    { name: 'EXPERIENCE', href: '#experience' },
-    { name: 'SKILLS', href: '#skills' },
-    { name: 'CONTACT', href: '#contact' },
-  ];
 
   return (
-    <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
-          ? 'bg-[#0A0A0F]/95 backdrop-blur-lg border-b border-zinc-900'
-          : 'bg-transparent'
-      }`}
-    >
-      <div className="max-w-7xl mx-auto px-4 md:px-20">
-        <div className="flex justify-between items-center h-20">
-          {/* Logo with decorative line art */}
-          <div className="relative">
-            {/* Decorative line art - part of logo - half hidden when scrolled */}
-            <div className={`absolute -left-20 -top-10 opacity-30 overflow-hidden transition-all duration-300 ${
-              isScrolled ? 'h-[100px] w-[200px]' : 'h-[200px] w-[200px]'
-            }`}>
-              <svg width="200" height="200" className="absolute top-0 left-0">
-                <line x1="0" y1="100" x2="200" y2="100" stroke="#06B6D4" strokeWidth="1"/>
-                <line x1="100" y1="0" x2="100" y2="200" stroke="#06B6D4" strokeWidth="1"/>
-                <circle cx="100" cy="100" r="30" stroke="#06B6D4" strokeWidth="1" fill="none"/>
-                <circle cx="100" cy="100" r="50" stroke="#06B6D4" strokeWidth="1" fill="none"/>
-              </svg>
-            </div>
-
-            <a href="#hero" className="flex items-center gap-0.5 relative z-10">
-              <span className="text-2xl font-light tracking-[0.5em] text-cyan-500">F</span>
-              <span className="text-2xl font-light tracking-[0.5em] text-white">R</span>
-            </a>
-          </div>
-
-          {/* Navigation links */}
-          <div className="hidden md:flex items-center gap-12">
-            {navLinks.map((link) => (
+    <nav className="mt-14 hidden lg:block" aria-label="Sections">
+      <ul className="space-y-1">
+        {navLinks.map(({ name, id }) => {
+          const isActive = active === id;
+          return (
+            <li key={id}>
               <a
-                key={link.name}
-                href={link.href}
-                className="text-[13px] tracking-[0.2em] text-zinc-500 hover:text-white transition-colors duration-200"
+                href={`#${id}`}
+                aria-current={isActive ? 'true' : undefined}
+                className="group flex items-center gap-4 py-2"
               >
-                {link.name}
+                <span
+                  className={cn(
+                    'h-px transition-all duration-200',
+                    isActive ? 'w-16 bg-accent-2' : 'w-8 bg-subtle group-hover:w-16 group-hover:bg-accent-2'
+                  )}
+                />
+                <span
+                  className={cn(
+                    'font-mono text-xs uppercase tracking-widest transition-colors',
+                    isActive ? 'text-ink' : 'text-subtle group-hover:text-ink'
+                  )}
+                >
+                  {name}
+                </span>
               </a>
-            ))}
-          </div>
-
-          {/* Mobile menu button */}
-          <button
-            onClick={toggleMobileMenu}
-            className="md:hidden text-zinc-500 hover:text-white transition-colors relative z-50"
-            aria-label="Toggle menu"
-            type="button"
-          >
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              {isMobileMenuOpen ? (
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M6 18L18 6M6 6l12 12" />
-              ) : (
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M4 6h16M4 12h16M4 18h16" />
-              )}
-            </svg>
-          </button>
-        </div>
-      </div>
-
-      {/* Mobile menu drawer */}
-      <div
-        className={`md:hidden fixed inset-0 top-20 bg-[#0A0A0F]/98 backdrop-blur-lg z-40 transition-all duration-300 ${
-          isMobileMenuOpen
-            ? 'opacity-100 pointer-events-auto'
-            : 'opacity-0 pointer-events-none'
-        }`}
-      >
-        <div className="flex flex-col items-center justify-center h-full space-y-8 px-8">
-          {navLinks.map((link, index) => (
-            <a
-              key={link.name}
-              href={link.href}
-              onClick={closeMobileMenu}
-              className={`text-2xl tracking-[0.2em] text-zinc-500 hover:text-white transition-all duration-300 ${
-                isMobileMenuOpen
-                  ? 'translate-y-0 opacity-100'
-                  : 'translate-y-4 opacity-0'
-              }`}
-              style={{
-                transitionDelay: isMobileMenuOpen ? `${index * 50}ms` : '0ms'
-              }}
-            >
-              {link.name}
-            </a>
-          ))}
-
-          {/* Decorative element */}
-          <div className={`mt-12 transition-all duration-500 ${
-            isMobileMenuOpen ? 'opacity-20 scale-100' : 'opacity-0 scale-90'
-          }`}>
-            <svg width="150" height="150">
-              <circle cx="75" cy="75" r="60" stroke="#06B6D4" strokeWidth="1" fill="none"/>
-              <circle cx="75" cy="75" r="40" stroke="#06B6D4" strokeWidth="1" fill="none"/>
-              <circle cx="75" cy="75" r="20" stroke="#06B6D4" strokeWidth="1" fill="none"/>
-            </svg>
-          </div>
-        </div>
-      </div>
+            </li>
+          );
+        })}
+      </ul>
     </nav>
   );
 }

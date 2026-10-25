@@ -1,40 +1,29 @@
-'use client';
-
-import { lazy, Suspense } from 'react';
-import Navigation from '@/components/Navigation';
-import Hero from '@/components/sections/Hero';
-import { SectionLoader } from '@/components/ui/SectionLoader';
-import { ScrollToTop } from '@/components/ui/ScrollToTop';
-
-// Lazy load sections below the fold for better initial load performance
-const About = lazy(() => import('@/components/sections/About'));
-const Experience = lazy(() => import('@/components/sections/Experience'));
-const Skills = lazy(() => import('@/components/sections/Skills'));
-const Contact = lazy(() => import('@/components/sections/Contact'));
+import Sidebar from '@/components/Sidebar';
+import About from '@/components/sections/About';
+import Experience from '@/components/sections/Experience';
+import Skills from '@/components/sections/Skills';
+import OffTheClock from '@/components/sections/OffTheClock';
+import Contact from '@/components/sections/Contact';
+import Footer from '@/components/Footer';
+import { CodeRain } from '@/components/CodeRain';
+import { CatsOnTheLine } from '@/components/CatsOnTheLine';
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-white dark:bg-black">
-      <Navigation />
-      <Hero />
-
-      <Suspense fallback={<SectionLoader />}>
-        <About />
-      </Suspense>
-
-      <Suspense fallback={<SectionLoader />}>
-        <Experience />
-      </Suspense>
-
-      <Suspense fallback={<SectionLoader />}>
-        <Skills />
-      </Suspense>
-
-      <Suspense fallback={<SectionLoader />}>
-        <Contact />
-      </Suspense>
-
-      <ScrollToTop />
+    <div className="px-6 md:px-12 lg:px-16 xl:px-20">
+      <CodeRain />
+      <CatsOnTheLine />
+      <div className="lg:flex lg:gap-16 xl:gap-24">
+        <Sidebar />
+        <main className="pb-16 lg:min-w-0 lg:flex-1 lg:py-24">
+          <About />
+          <Experience />
+          <Skills />
+          <OffTheClock />
+          <Contact />
+          <Footer />
+        </main>
+      </div>
     </div>
   );
 }

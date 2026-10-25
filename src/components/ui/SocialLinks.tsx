@@ -3,6 +3,7 @@ import { cn } from '@/lib/utils';
 interface SocialLinksProps {
   linkedin: string;
   github: string;
+  medium: string;
   email: string;
   className?: string;
 }
@@ -31,6 +32,18 @@ function GitHubIcon({ className }: { className?: string }) {
   );
 }
 
+function MediumIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      className={cn('w-6 h-6', className)}
+      fill="currentColor"
+      viewBox="0 0 24 24"
+    >
+      <path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/>
+    </svg>
+  );
+}
+
 function EmailIcon({ className }: { className?: string }) {
   return (
     <svg
@@ -44,39 +57,28 @@ function EmailIcon({ className }: { className?: string }) {
   );
 }
 
-export function SocialLinks({ linkedin, github, email, className }: SocialLinksProps) {
-  const linkStyles = 'group';
-  const iconStyles = 'text-zinc-500 group-hover:text-cyan-500 transition-colors';
+export function SocialLinks({ linkedin, github, medium, email, className }: SocialLinksProps) {
+  const links = [
+    { label: 'LinkedIn', href: `https://${linkedin}`, Icon: LinkedInIcon, external: true },
+    { label: 'GitHub', href: `https://${github}`, Icon: GitHubIcon, external: true },
+    { label: 'Medium', href: `https://${medium}`, Icon: MediumIcon, external: true },
+    { label: 'Email', href: `mailto:${email}`, Icon: EmailIcon, external: false },
+  ];
 
   return (
-    <div className={cn('flex items-center justify-center gap-8', className)}>
-      <a
-        href={`https://${linkedin}`}
-        target="_blank"
-        rel="noopener noreferrer"
-        className={linkStyles}
-        aria-label="LinkedIn"
-      >
-        <LinkedInIcon className={iconStyles} />
-      </a>
-
-      <a
-        href={`https://${github}`}
-        target="_blank"
-        rel="noopener noreferrer"
-        className={linkStyles}
-        aria-label="GitHub"
-      >
-        <GitHubIcon className={iconStyles} />
-      </a>
-
-      <a
-        href={`mailto:${email}`}
-        className={linkStyles}
-        aria-label="Email"
-      >
-        <EmailIcon className={iconStyles} />
-      </a>
-    </div>
+    <ul className={cn('flex flex-wrap items-center gap-x-6 gap-y-3', className)}>
+      {links.map(({ label, href, Icon, external }) => (
+        <li key={label}>
+          <a
+            href={href}
+            {...(external && { target: '_blank', rel: 'noopener noreferrer' })}
+            className="group flex items-center gap-2 text-sm text-muted transition-colors hover:text-ink"
+          >
+            <Icon className="h-[18px] w-[18px] text-subtle transition-colors group-hover:text-accent-2" />
+            {label}
+          </a>
+        </li>
+      ))}
+    </ul>
   );
 }

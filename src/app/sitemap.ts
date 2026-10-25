@@ -31,6 +31,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.7,
     },
     {
+      url: '/#off-the-clock',
+      lastModified,
+      changeFrequency: 'yearly',
+      priority: 0.5,
+    },
+    {
       url: '/#contact',
       lastModified,
       changeFrequency: 'yearly',

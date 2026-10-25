@@ -1,59 +1,119 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --paper: #f8f7f4;
+  --surface: #ffffff;
+  --ink: #16181d;
+  --muted: #565c66;
+  --subtle: #868c96;
+  --line: #e3e1db;
+  --accent: #0b6b60;
+  --accent-2: #0e7490;
+  --accent-soft: #e2efec;
+  /* The cats are drawn in the two accents, with a touch of gold and mint in their eyes */
+  --cat-big: var(--accent);
+  --cat-big-eye: #c9971c;
+  --cat-small: var(--accent-2);
+  --cat-small-eye: #13946f;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --paper: #0f1113;
+    --surface: #16191c;
+    --ink: #ecebe7;
+    --muted: #a4a9b1;
+    --subtle: #747a84;
+    --line: #272a2f;
+    --accent: #62c4b3;
+    --accent-2: #22d3ee;
+    --accent-soft: #15302c;
+    --cat-big-eye: #f2d27a;
+    --cat-small-eye: #9ff0c8;
+    color-scheme: dark;
   }
 }
 
-* {
+@theme inline {
+  --color-paper: var(--paper);
+  --color-surface: var(--surface);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-subtle: var(--subtle);
+  --color-line: var(--line);
+  --color-accent: var(--accent);
+  --color-accent-2: var(--accent-2);
+  --color-accent-soft: var(--accent-soft);
+  --color-cat-big: var(--cat-big);
+  --color-cat-big-eye: var(--cat-big-eye);
+  --color-cat-small: var(--cat-small);
+  --color-cat-small-eye: var(--cat-small-eye);
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+  --font-serif: var(--font-newsreader), Georgia, "Times New Roman", serif;
+}
+
+html {
   scroll-behavior: smooth;
 }
 
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-sans);
 }
 
-/* Custom animations */
-@keyframes fade-in {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+::selection {
+  background: color-mix(in srgb, var(--accent-2) 25%, transparent);
+  color: var(--ink);
 }
 
-@keyframes gradient {
-  0%, 100% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
+/* Black cat in the "Off the clock" section */
+@keyframes cat-blink {
+  0%, 92%, 100% { transform: scaleY(1); }
+  95% { transform: scaleY(0.1); }
 }
 
-.animate-fade-in {
-  animation: fade-in 0.8s ease-out;
+@keyframes cat-tail {
+  from { transform: rotate(-6deg); }
+  to { transform: rotate(8deg); }
 }
 
-.animate-gradient {
-  animation: gradient 3s ease infinite;
+.cat-eyes {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: cat-blink 5s infinite;
+}
+
+.cat-tail {
+  transform-box: fill-box;
+  transform-origin: left bottom;
+  animation: cat-tail 2.8s ease-in-out infinite alternate;
+}
+
+/* Back-to-top cat: ears wiggle while hovered */
+@keyframes cat-ears {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-4deg); }
+  75% { transform: rotate(4deg); }
+}
+
+.group:hover .cat-ears {
+  transform-box: fill-box;
+  transform-origin: center bottom;
+  animation: cat-ears 0.4s ease-in-out 2;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cat-eyes,
+  .cat-tail,
+  .group:hover .cat-ears {
+    animation: none;
+  }
 }

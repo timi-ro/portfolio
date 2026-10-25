@@ -1,6 +1,7 @@
 import { resume } from '@/data/resume';
 
 export function StructuredData() {
+  const [current] = resume.experience;
   const structuredData = {
     '@context': 'https://schema.org',
     '@type': 'Person',
@@ -16,10 +17,12 @@ export function StructuredData() {
     sameAs: [
       `https://${resume.personalInfo.linkedin}`,
       `https://${resume.personalInfo.github}`,
+      `https://${resume.personalInfo.medium}`,
     ],
-    alumniOf: {
+    worksFor: {
       '@type': 'Organization',
-      name: 'Backend Software Engineering',
+      name: current.company,
+      url: current.companyUrl,
     },
     knowsAbout: resume.skills.map(skill => skill.name),
   };

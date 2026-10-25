@@ -18,11 +18,6 @@ const nextConfig: NextConfig = {
 
   // Enable compression
   compress: true,
-
-  // Performance optimizations
-  experimental: {
-    optimizePackageImports: ['framer-motion'],
-  },
 };
 
 export default nextConfig;
