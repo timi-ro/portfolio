@@ -91,6 +91,9 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
+  icons: {
+    apple: "https://timi-ro.github.io/portfolio/apple-touch-icon.jpg",
+  },
   verification: {
     // Add your verification codes here after deployment
     // google: "your-google-verification-code",
