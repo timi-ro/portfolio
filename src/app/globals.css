@@ -15,6 +15,10 @@
   --cat-big-eye: #c9971c;
   --cat-small: var(--accent-2);
   --cat-small-eye: #13946f;
+  --cat-black: var(--accent-2);
+  --cat-black-eye: var(--cat-big-eye);
+  /* The neon heart over the two cats when they meet again */
+  --cat-heart: #e11d48;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -30,6 +34,7 @@
     --accent-soft: #15302c;
     --cat-big-eye: #f2d27a;
     --cat-small-eye: #9ff0c8;
+    --cat-heart: #ff3b5c;
     color-scheme: dark;
   }
 }
@@ -48,6 +53,9 @@
   --color-cat-big-eye: var(--cat-big-eye);
   --color-cat-small: var(--cat-small);
   --color-cat-small-eye: var(--cat-small-eye);
+  --color-cat-black: var(--cat-black);
+  --color-cat-black-eye: var(--cat-black-eye);
+  --color-cat-heart: var(--cat-heart);
   --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-geist-mono), ui-monospace, monospace;
   --font-serif: var(--font-newsreader), Georgia, "Times New Roman", serif;
@@ -91,9 +99,10 @@ body {
   animation: cat-blink 5s infinite;
 }
 
+/* The tail hangs from where it leaves the haunch, at the top left of its box */
 .cat-tail {
   transform-box: fill-box;
-  transform-origin: left bottom;
+  transform-origin: left top;
   animation: cat-tail 2.8s ease-in-out infinite alternate;
 }
 

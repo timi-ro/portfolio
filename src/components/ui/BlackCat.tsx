@@ -1,29 +1,22 @@
+import { BLACK_CAT } from '@/components/catArt';
+import { NeonCat } from '@/components/NeonCat';
 import { cn } from '@/lib/utils';
 
 interface BlackCatProps {
   className?: string;
 }
 
-// A small sitting black cat with blinking eyes and a swaying tail (animations in globals.css).
-// On a dark background it's mostly just the eyes.
+// Drawn at the same scale as the cats on the sidebar divider, so the glow matches theirs.
+// That puts the ledge it sits on (y = 400 in the art) 48px from the top.
+const SCALE = 0.12;
+
+// A black cat in the same neon line art as the cats on the divider, with a blinking eye and a
+// tail that sways over the edge it sits on (animations in globals.css)
 export function BlackCat({ className }: BlackCatProps) {
+  const [width, height] = BLACK_CAT.viewBox;
   return (
-    <svg aria-hidden="true" viewBox="0 0 48 48" className={cn('text-[#141416]', className)}>
-      <path
-        d="M33 46c8 0 12-5 10-11-1-3-4-4-5-2"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="3.5"
-        strokeLinecap="round"
-        className="cat-tail"
-      />
-      <path d="M13 47c-2-12 3-23 11-24 8 1 13 12 11 24z" fill="currentColor" />
-      <path d="M16 13l1.5-9 6 5.5h1l6-5.5 1.5 9z" fill="currentColor" />
-      <circle cx="24" cy="16" r="8.5" fill="currentColor" />
-      <g className="cat-eyes">
-        <ellipse cx="20.5" cy="16" rx="1.6" ry="2" className="fill-accent" />
-        <ellipse cx="27.5" cy="16" rx="1.6" ry="2" className="fill-accent" />
-      </g>
-    </svg>
+    <div className={cn('pointer-events-none', className)} style={{ width: width * SCALE, height: height * SCALE }}>
+      <NeonCat art={BLACK_CAT} glowId="cat-glow-black" lineClass="stroke-cat-black" eyeClass="fill-cat-black-eye" />
+    </div>
   );
 }

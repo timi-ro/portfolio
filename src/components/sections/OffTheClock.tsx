@@ -27,7 +27,7 @@ export default function OffTheClock() {
       </Reveal>
 
       <Reveal delay={0.1} className="relative mt-16">
-        <BlackCat className="absolute -top-10.5 right-10 h-11 w-11" />
+        <BlackCat className="absolute -top-12 right-10" />
 
         <figure className="overflow-hidden rounded-lg border border-line bg-surface shadow-sm">
           <figcaption className="flex items-center gap-2 border-b border-line px-4 py-2.5">
@@ -62,15 +62,21 @@ export default function OffTheClock() {
                 {'\n  '}
                 <Key>writes</Key>
                 <P>: [</P>
-                <Str>journal</Str>
-                <P>,</P> <Str>poetry</Str>
-                <P>],</P> <Comment>contents classified</Comment>
+                <Str>technical articles</Str>
+                <P>,</P> <Str>personal experiences</Str>
+                <P>],</P> <Comment>on Medium</Comment>
                 {'\n  '}
-                <Key>studies</Key>
+                <Key>habits</Key>
                 <P>: [</P>
-                <Str>philosophy</Str>
-                <P>,</P> <Str>psychology</Str>
-                <P>],</P> <Comment>what my analytical mind feeds on</Comment>
+                <Str>journaling</Str>
+                <P>,</P> <Str>planning</Str>
+                <P>],</P> <Comment>daily commits; the journal stays classified</Comment>
+                {'\n  '}
+                <Key>reads</Key>
+                <P>: [</P>
+                <Str>poetry</Str>
+                <P>,</P> <Str>ancient wisdom</Str>
+                <P>],</P> <Comment>old code that still runs</Comment>
                 {'\n  '}
                 <Key>overthinks</Key>
                 <P>:</P> <Lit>Infinity</Lit>

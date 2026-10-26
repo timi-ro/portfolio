@@ -1,11 +1,14 @@
-// Line art for the two cats on the sidebar divider, traced from the neon cat illustrations:
-// centre lines of each drawing, the eye as a filled shape, and a filled silhouette used as a
-// backing so the divider and code rain don't show through. Coordinates are in the source image's pixels.
+// Line art for the cats, in the style of the neon cat illustrations: centre lines of each drawing,
+// the eye as a filled shape, and a filled silhouette used as a backing so the divider and code rain
+// don't show through. The two cats on the sidebar divider are traced from the illustrations, with
+// coordinates in the source image's pixels; the black cat is drawn by hand at the same scale.
 
 export interface CatArt {
   viewBox: [number, number];
   lines: string[];
   eye: string;
+  // A tail drawn as its own line, so it can sway
+  tail?: string;
   backing: string;
 }
 
@@ -37,4 +40,18 @@ export const SMALL_CAT: CatArt = {
   ],
   eye: 'M44.7 27.3C46 26 52.4 28.2 55 29C57.6 29.8 58.8 30.3 60.6 32.3C62.4 34.2 64.6 38.4 65.7 40.7C66.9 43 67.2 44.7 67.4 46C67.7 47.3 67.5 48.1 67.1 48.6C66.7 49 66.9 49.1 65 48.7C63.1 48.3 58.4 47 56 46C53.6 45 51.9 44.1 50.4 42.6C48.9 41.1 48 39.5 47 37C46 34.5 43.4 28.6 44.7 27.3Z',
   backing: 'M60 9L80 9L96 15L122 39L136 45L144 47L174 47L182 53L182 59L172 74L147 97L140 115L140 158L144 178L153 201L166 223L194 251L242 289L262 311L282 339L294 363L306 395L312 425L314 465L319 477L333 484L350 483L361 489L372 503L376 517L376 529L372 543L360 561L338 578L306 588L257 588L254 586L241 586L192 578L173 578L148 584L139 584L133 580L130 574L118 569L100 576L78 576L69 569L71 558L89 543L97 522L99 510L97 461L87 413L53 332L43 290L45 249L59 190L59 153L57 143L41 104L17 71L9 51L9 30L17 14L46 13Z',
+};
+
+// Sitting, facing left, on a ledge at y = 400, with its tail hanging over the edge
+export const BLACK_CAT: CatArt = {
+  viewBox: [348, 540],
+  lines: [
+    'M28 92C30 76 40 50 54 38C58 28 60 16 62 6C70 12 78 20 84 26C90 18 98 8 106 2C114 12 124 24 130 38C138 50 146 64 148 82C150 108 164 132 184 154C208 180 224 204 244 236C268 272 296 304 298 348C300 376 296 396 284 400',
+    'M28 92C28.8 104 36 114 48 116C56 117.6 58.4 126 56.8 136C55.2 152 46.4 168 45.6 192C44.8 224 50.4 256 52 288C53.6 320 54 360 52 384C51.2 394 56 400 64 400L90 400C94 400 96 394 96 386C96 356 94.4 328 92.8 304',
+    'M128 400C124 368 132 332 156 312C180 292 236 288 266 312',
+  ],
+  eye: 'M58 70C62 59.2 76 56 84 62C81.2 72.8 68 78 58 70Z',
+  tail: 'M284 400C294 400.8 302 403.2 308 412C314 422 312 448 312 472C312 496 308 516 316 528C324 538 338 536 342 524',
+  backing:
+    'M28 92C30 76 40 50 54 38C58 28 60 16 62 6C70 12 78 20 84 26C90 18 98 8 106 2C114 12 124 24 130 38C138 50 146 64 148 82C150 108 164 132 184 154C208 180 224 204 244 236C268 272 296 304 298 348C300 376 296 396 284 400L64 400C56 400 51.2 394 52 384C54 360 53.6 320 52 288C50.4 256 44.8 224 45.6 192C46.4 168 55.2 152 56.8 136C58.4 126 56 117.6 48 116C36 114 28.8 104 28 92Z',
 };

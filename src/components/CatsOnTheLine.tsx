@@ -1,7 +1,8 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
-import { BIG_CAT, SMALL_CAT, type CatArt } from '@/components/catArt';
+import { useCallback, useEffect, useRef, useState } from 'react';
+import { BIG_CAT, SMALL_CAT } from '@/components/catArt';
+import { NeonCat } from '@/components/NeonCat';
 import { cn } from '@/lib/utils';
 
 const DESKTOP = '(min-width: 1024px)';
@@ -40,53 +41,28 @@ const MOBILE_SHOW_AFTER = 250;
 
 // The heart floats centred between their heads, just above the big cat's ears
 const HEART = { centerX: 2, above: 16, size: 14 };
+// They count as apart once the page scrolls this far on desktop, where she sets off as soon as it
+// moves (on smaller screens, once she's in her corner), and as together again within MEET_WITHIN
+// of the top (both in px)
+const APART_AFTER = 24;
+const MEET_WITHIN = 8;
 
 const easeInOutCubic = (t: number) => (t < 0.5 ? 4 * t * t * t : 1 - (-2 * t + 2) ** 3 / 2);
-
-interface NeonCatProps {
-  art: CatArt;
-  glowId: string;
-  lineClass: string;
-  eyeClass: string;
-}
-
-// One cat: a page-coloured backing, then glowing line work and a blinking eye
-function NeonCat({ art, glowId, lineClass, eyeClass }: NeonCatProps) {
-  const [width, height] = art.viewBox;
-  return (
-    <svg aria-hidden="true" viewBox={`0 0 ${width} ${height}`} className="h-full w-full overflow-visible">
-      <defs>
-        {/* Neon glow: a soft blur of the lines layered under the crisp lines */}
-        <filter id={glowId} x="-20%" y="-20%" width="140%" height="140%">
-          <feGaussianBlur in="SourceGraphic" stdDeviation="8" result="glow" />
-          <feMerge>
-            <feMergeNode in="glow" />
-            <feMergeNode in="SourceGraphic" />
-          </feMerge>
-        </filter>
-      </defs>
-      <path d={art.backing} className="fill-paper" />
-      <g filter={`url(#${glowId})`} fill="none" strokeLinecap="round" strokeLinejoin="round" className={lineClass}>
-        {art.lines.map((d) => (
-          // Non-scaling so the line stays 0.7px however small the cat is drawn
-          <path key={d} d={d} strokeWidth={0.7} vectorEffect="non-scaling-stroke" />
-        ))}
-        <path d={art.eye} stroke="none" className={cn('cat-eyes', eyeClass)} />
-      </g>
-    </svg>
-  );
-}
 
 // Two cats that start together at the top. On desktop they sit on the sidebar's wavy divider and
 // the small one walks down the line as the page scrolls; on smaller screens she waits in the
 // bottom-right corner. Either way she asks to be taken back up, and clicking her scrolls the page
-// to the top, where the two meet again.
+// to the top. Every time the two meet again, whether she was carried up or the page was scrolled
+// back by hand, a heart floats up between them.
 export function CatsOnTheLine() {
   const smallRef = useRef<HTMLButtonElement>(null);
   const scrollAnimation = useRef(0);
   const climbingRef = useRef(false);
   // Small screens: after riding back up she stays where she landed until she next sets off
   const landedRef = useRef(false);
+  // Whether she's been away since they last met, so the next meeting gets a heart
+  const apartRef = useRef(false);
+  const heartTimer = useRef(0);
   // Right edge of the sidebar: the divider on desktop, the content's right edge on smaller screens
   const [anchor, setAnchor] = useState<{ x: number; desktop: boolean } | null>(null);
   const [progress, setProgress] = useState(0);
@@ -94,6 +70,14 @@ export function CatsOnTheLine() {
   const [climbing, setClimbing] = useState(false);
   const [landed, setLanded] = useState(false);
   const [reunited, setReunited] = useState(false);
+
+  const celebrate = useCallback(() => {
+    apartRef.current = false;
+    setReunited(true);
+    // A fresh heart gets its full time, even if the last one hasn't faded yet
+    window.clearTimeout(heartTimer.current);
+    heartTimer.current = window.setTimeout(() => setReunited(false), 1600);
+  }, []);
 
   useEffect(() => {
     let frame = 0;
@@ -121,6 +105,13 @@ export function CatsOnTheLine() {
           setLanded(false);
         }
       }
+      // A heart each time she's back beside the big cat after being away, however far she went. A
+      // ride back up (climbing) gets its heart when it lands, as no scroll may follow the last step.
+      if (climbingRef.current || window.scrollY > (desktop ? APART_AFTER : MOBILE_SHOW_AFTER)) {
+        apartRef.current = true;
+      } else if (apartRef.current && window.scrollY <= MEET_WITHIN) {
+        celebrate();
+      }
       setAnchor({ x: sidebar.getBoundingClientRect().right, desktop });
       setProgress(nextProgress);
       setScrollY(window.scrollY);
@@ -136,8 +127,9 @@ export function CatsOnTheLine() {
       window.removeEventListener('resize', schedule);
       cancelAnimationFrame(frame);
       cancelAnimationFrame(scrollAnimation.current);
+      window.clearTimeout(heartTimer.current);
     };
-  }, []);
+  }, [celebrate]);
 
   if (!anchor) return null;
 
@@ -155,10 +147,6 @@ export function CatsOnTheLine() {
 
   const bringToTop = () => {
     if (climbingRef.current) return;
-    const celebrate = () => {
-      setReunited(true);
-      window.setTimeout(() => setReunited(false), 1600);
-    };
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       window.scrollTo({ top: 0, behavior: 'auto' });
       celebrate();
@@ -235,12 +223,12 @@ export function CatsOnTheLine() {
         </div>
       )}
 
-      {/* A little heart above their heads when they meet again */}
+      {/* A little neon heart above their heads when they meet again */}
       <svg
         aria-hidden="true"
         viewBox="0 0 24 24"
         className={cn(
-          'pointer-events-none z-20 drop-shadow-[0_0_3px_var(--cat-big)] transition-all duration-700 ease-out motion-reduce:transition-none',
+          'pointer-events-none z-20 drop-shadow-[0_0_4px_var(--cat-heart)] transition-all duration-700 ease-out motion-reduce:transition-none',
           placement,
           reunited ? '-translate-y-2.5 opacity-100' : 'translate-y-0 opacity-0'
         )}
@@ -251,15 +239,9 @@ export function CatsOnTheLine() {
           height: HEART.size,
         }}
       >
-        <defs>
-          <linearGradient id="cat-heart" x1="0" y1="0" x2="1" y2="0">
-            <stop offset="0" style={{ stopColor: 'var(--cat-big)' }} />
-            <stop offset="1" style={{ stopColor: 'var(--cat-small)' }} />
-          </linearGradient>
-        </defs>
         <path
           d="M12 21S3 15.4 3 9.3C3 6.3 5.3 4 8.2 4c1.6 0 3 .8 3.8 2.1C12.8 4.8 14.2 4 15.8 4 18.7 4 21 6.3 21 9.3 21 15.4 12 21 12 21z"
-          fill="url(#cat-heart)"
+          className="fill-cat-heart"
         />
       </svg>
 
