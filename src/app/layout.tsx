@@ -92,6 +92,12 @@ export const metadata: Metadata = {
     },
   },
   icons: {
+    icon: [
+      { url: "https://timi-ro.github.io/portfolio/favicon.ico", sizes: "any" },
+      { url: "https://timi-ro.github.io/portfolio/favicon-32x32.png", type: "image/png", sizes: "32x32" },
+      { url: "https://timi-ro.github.io/portfolio/favicon-16x16.png", type: "image/png", sizes: "16x16" },
+    ],
+    shortcut: "https://timi-ro.github.io/portfolio/favicon.ico",
     apple: "https://timi-ro.github.io/portfolio/apple-touch-icon.jpg",
   },
   verification: {
