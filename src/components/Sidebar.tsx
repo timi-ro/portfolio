@@ -29,7 +29,8 @@ export default function Sidebar() {
   return (
     <header id="sidebar" className="pt-16 pb-8 lg:sticky lg:top-0 lg:flex lg:h-screen lg:w-[30%] lg:max-w-md lg:shrink-0 lg:flex-col lg:justify-between lg:py-24 lg:pr-12">
       <div>
-        <h1 className="font-serif text-5xl font-normal tracking-tight text-ink sm:text-6xl">
+        {/* Below lg the cats sit at the top right of the page, so the name keeps clear of them */}
+        <h1 className="pr-24 font-serif text-5xl font-normal tracking-tight text-ink sm:text-6xl lg:pr-0">
           <a href="#">{name}</a>
         </h1>
         <p className="mt-4 text-lg font-medium text-ink">{role}</p>

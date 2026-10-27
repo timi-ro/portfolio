@@ -271,15 +271,31 @@ export function CatsOnTheLine() {
             : { width: pair.small.width, height: pair.small.height }
         }
       >
+        {/* Her thought, in a neon cloud over her head. She faces left, so it leans that way, which
+            also keeps it on screen when she waits in the bottom-right corner. */}
         <span
           className={cn(
-            'pointer-events-none absolute right-full top-0 mr-2 whitespace-nowrap rounded-lg bg-ink px-2.5 py-1.5 font-mono text-[11px] text-paper shadow-sm transition-opacity duration-300',
-            "after:absolute after:left-full after:top-2.5 after:border-[5px] after:border-transparent after:border-l-ink after:content-['']",
+            'pointer-events-none absolute bottom-full -left-35.5 h-18 w-44 transition-opacity duration-300',
             asking ? 'opacity-100' : 'opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100',
             climbing && 'opacity-0 group-hover:opacity-0'
           )}
         >
-          Take me to the top ↑
+          <svg
+            aria-hidden="true"
+            viewBox="0 0 176 72"
+            className="absolute inset-0 h-full w-full overflow-visible fill-paper stroke-cat-small drop-shadow-[0_0_3px_var(--cat-small)]"
+          >
+            <path
+              d="M8 25A7.7 7.7 0 0 1 18.7 16.5A16.8 16.8 0 0 1 48 10.3A22.4 22.4 0 0 1 88 8A22.4 22.4 0 0 1 128 10.3A16.8 16.8 0 0 1 157.3 16.5A7.7 7.7 0 0 1 168 25A8.8 8.8 0 0 1 157.3 33.5A19.2 19.2 0 0 1 128 39.7A25.6 25.6 0 0 1 88 42A25.6 25.6 0 0 1 48 39.7A19.2 19.2 0 0 1 18.7 33.5A8.8 8.8 0 0 1 8 25Z"
+              strokeWidth={1}
+            />
+            {/* Bubbles trailing down to her head */}
+            <circle cx={147} cy={55} r={4} strokeWidth={1} />
+            <circle cx={153} cy={65} r={2.4} strokeWidth={1} />
+          </svg>
+          <span className="absolute inset-x-0 top-0 flex h-12.5 items-center justify-center whitespace-nowrap font-mono text-[11px] text-ink">
+            Take me to the top ↑
+          </span>
         </span>
         <span className="block h-full w-full transition-transform duration-300 group-hover:-translate-y-1 motion-reduce:transition-none">
           <NeonCat art={SMALL_CAT} glowId="cat-glow-small" lineClass="stroke-cat-small" eyeClass="fill-cat-small-eye" />
