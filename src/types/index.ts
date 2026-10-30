@@ -39,6 +39,7 @@ export interface PersonalInfo {
   email: string;
   linkedin: string;
   github: string;
+  stackoverflow: string;
   medium: string;
 }
 

@@ -17,6 +17,7 @@ export function StructuredData() {
     sameAs: [
       `https://${resume.personalInfo.linkedin}`,
       `https://${resume.personalInfo.github}`,
+      `https://${resume.personalInfo.stackoverflow}`,
       `https://${resume.personalInfo.medium}`,
     ],
     worksFor: {

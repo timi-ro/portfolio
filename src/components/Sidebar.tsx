@@ -23,7 +23,7 @@ function TailDivider() {
 }
 
 export default function Sidebar() {
-  const { name, role, intro, location, email, linkedin, github, medium } = resume.personalInfo;
+  const { name, role, intro, location, email, linkedin, github, stackoverflow, medium } = resume.personalInfo;
   const current = resume.experience.find((exp) => exp.period.endsWith('Present'));
 
   return (
@@ -53,7 +53,7 @@ export default function Sidebar() {
       </div>
 
       <div className="mt-10 space-y-5 lg:mt-0">
-        <SocialLinks linkedin={linkedin} github={github} medium={medium} email={email} />
+        <SocialLinks linkedin={linkedin} github={github} stackoverflow={stackoverflow} medium={medium} email={email} />
         <p className="font-mono text-xs uppercase tracking-wider text-subtle">
           {location} · Remote
         </p>

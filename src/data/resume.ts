@@ -15,6 +15,7 @@ export const resume: Resume = {
     email: 'frostami.1988@gmail.com',
     linkedin: 'linkedin.com/in/frostami',
     github: 'github.com/timi-ro',
+    stackoverflow: 'stackoverflow.com/users/5456543/fatemeh-rostami',
     medium: 'medium.com/@foretoldfatima',
   },
   experience: [
@@ -27,8 +28,8 @@ export const resume: Resume = {
       period: 'May 2026 – Present',
       achievements: [
         {
-          title: 'Led end-to-end delivery of the new customer platform.',
-          detail: 'Owned the client portal from design handoff to production: translated Figma designs into a reusable component system (cards, chips, filters, layout primitives) and designed the REST API layer behind it, including dashboard status and development timelines, risk-score prioritization, watched items, regulatory developments, saved prompts, and AI-generated email workflows.',
+          title: 'Leading end-to-end delivery of the new customer platform.',
+          detail: 'Owning the client portal from design handoff to production: translating Figma designs into a reusable component system (cards, chips, filters, layout primitives) and designing the REST API layer behind it, including dashboard status and development timelines, risk-score prioritization, watched items, regulatory developments, saved prompts, and AI-generated email workflows.',
         },
         {
           title: 'Redesigned the platform’s error-handling strategy.',
@@ -47,8 +48,8 @@ export const resume: Resume = {
           detail: 'Expanded automated test coverage on the client portal and introduced structured test plans for edge cases beyond the reach of automation.',
         },
         {
-          title: 'Grew the team.',
-          detail: 'Onboarded and mentored junior engineers, accelerating their ramp-up and building shared ownership of the platform.',
+          title: 'Growing the team.',
+          detail: 'Onboarding and mentoring junior engineers, accelerating their ramp-up and building shared ownership of the platform.',
         },
       ],
       technologies: [
