@@ -5,6 +5,7 @@ export const resume: Resume = {
     name: 'Fatemeh Rostami',
     role: 'Full-Stack Software Engineer',
     intro: 'I build product platforms end to end, from the data model and API to the interface customers use every day.',
+    statement: 'Just having a job is not enough! I always look for opportunities where I can contribute meaningfully, continue learning, and grow alongside the people I work with.',
     about: [
       'I learned to code before AI could do it for me. Back then, tracking down a simple bug could take a couple of days: setting breakpoints in the IDE, stepping through the code line by line, and watching every variable until the problem finally showed itself. That slow, patient debugging taught me how software really behaves, and it still shapes how I work today, even with AI tools at my side.',
       'I\'m a full-stack software engineer at SCOREalytics, working across the customer platform of a legal regulatory-intelligence product. I rebuilt the client portal from Figma designs into a reusable component system, and I design the REST APIs, onboarding flows and integrations behind it.',

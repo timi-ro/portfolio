@@ -34,6 +34,8 @@ export interface PersonalInfo {
   name: string;
   role: string;
   intro: string;
+  // The line the About section opens with
+  statement: string;
   about: string[];
   location: string;
   email: string;
