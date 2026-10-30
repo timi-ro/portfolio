@@ -1,7 +1,7 @@
 import { resume } from '@/data/resume';
 
 export function StructuredData() {
-  const [current] = resume.experience;
+  const current = resume.experience.filter((exp) => exp.period.endsWith('Present'));
   const structuredData = {
     '@context': 'https://schema.org',
     '@type': 'Person',
@@ -20,11 +20,11 @@ export function StructuredData() {
       `https://${resume.personalInfo.stackoverflow}`,
       `https://${resume.personalInfo.medium}`,
     ],
-    worksFor: {
+    worksFor: current.map((exp) => ({
       '@type': 'Organization',
-      name: current.company,
-      url: current.companyUrl,
-    },
+      name: exp.company,
+      url: exp.companyUrl,
+    })),
     knowsAbout: resume.skills.map(skill => skill.name),
   };
 

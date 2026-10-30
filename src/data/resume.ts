@@ -79,28 +79,27 @@ export const resume: Resume = {
       context: 'Voice-first AI workspace for coding, research, media and automation',
       role: 'Quality of Experience Tester',
       location: 'Fractional remote',
-      period: 'Oct 2025 – May 2026',
-      tenure: '8 mos',
+      period: 'Oct 2025 – Present',
       achievements: [
         {
           title: 'Agentic AI workflow verification.',
-          detail: 'Tested the Solo and Duo work lanes, where one AI lane builds while another reviews, along with voice input and switching between AI model providers, and reported where responses or hand-offs between lanes broke down.',
+          detail: 'Testing the Solo and Duo work lanes, where one AI lane builds while another reviews, along with voice input and switching between AI model providers, and reporting where responses or hand-offs between lanes break down.',
         },
         {
           title: 'Automation and media tools.',
-          detail: 'Checked the built-in browser automation and the image, video, music and speech generation tools, verifying that recordings, screenshots and output files were produced and saved correctly.',
+          detail: 'Checking the built-in browser automation and the image, video, music and speech generation tools, verifying that recordings, screenshots and output files are produced and saved correctly.',
         },
         {
           title: 'Cross-platform desktop testing.',
-          detail: 'Tested Dojo Workspace releases on macOS, Windows and Linux, checking installation, updates and core workflows on each platform before release.',
+          detail: 'Testing Dojo Workspace releases on macOS, Windows and Linux, checking installation, updates and core workflows on each platform before release.',
         },
         {
           title: 'Remote access.',
-          detail: 'Tested Dojo Connect, the Telegram-based remote access with two-way text and voice messaging.',
+          detail: 'Testing Dojo Connect, the Telegram-based remote access with two-way text and voice messaging.',
         },
         {
           title: 'Bug reports and regression checks.',
-          detail: 'Wrote clear, reproducible bug reports and re-tested fixes before each release.',
+          detail: 'Writing clear, reproducible bug reports and re-testing fixes before each release.',
         },
       ],
       technologies: [

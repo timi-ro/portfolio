@@ -142,7 +142,7 @@ export default function Experience() {
                     aria-hidden="true"
                     className={cn(
                       'relative h-3 w-3 rounded-full border-2 transition-all duration-300 group-hover:scale-125 motion-reduce:transition-none',
-                      // Only the current role is solid; the role being read gets a ring instead
+                      // Only current roles are solid; the role being read gets a ring instead
                       isCurrent ? 'border-accent bg-accent' : 'bg-paper',
                       !isCurrent && (isPassed ? 'border-accent' : 'border-subtle'),
                       isActive && 'scale-125 ring-4 ring-accent-soft'
